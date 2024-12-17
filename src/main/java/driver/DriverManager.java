@@ -1,5 +1,4 @@
 package driver;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -7,7 +6,6 @@ public class DriverManager {
     private static WebDriver driver;
 
     // Metodo para obtener instancia del driver
-
     public static WebDriver getDriver() {
         if (driver == null) {
             driver = new ChromeDriver();
@@ -15,7 +13,6 @@ public class DriverManager {
         }
         return driver;
     }
-
     public static void quitDriver() {
         if (driver != null) {
             driver.quit();

@@ -1,5 +1,4 @@
 package tests;
-
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
@@ -13,11 +12,10 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 import reports.ExtentManager;
 import com.aventstack.extentreports.ExtentReports;
-
 import java.io.File;
 import java.io.IOException;
-public class TestListener implements ITestListener {
 
+public class TestListener implements ITestListener {
     private ExtentReports extent;
 
     @Override
@@ -26,7 +24,6 @@ public class TestListener implements ITestListener {
         extent = ExtentManager.createInstance("test-output/ExtentReport.html");
         System.out.println("Inicio del contexto de prueba: " + context.getName());
     }
-
     @Override
     public void onTestStart(ITestResult result) {
         // Crear un nuevo test en el informe usando ExtentManager
@@ -35,14 +32,12 @@ public class TestListener implements ITestListener {
         test.log(Status.INFO, "Inicio del test: " + result.getMethod().getMethodName());
         System.out.println("Inicio del test: " + result.getMethod().getMethodName());
     }
-
     @Override
     public void onTestSuccess(ITestResult result) {
         // Marcar el test como exitoso
         ExtentManager.getTest().log(Status.PASS, "El test pasó exitosamente.");
         System.out.println("Test exitoso: " + result.getMethod().getMethodName());
     }
-
     @Override
     public void onTestFailure(ITestResult result) {
         // Marcar el test como fallido y agregar el mensaje de error

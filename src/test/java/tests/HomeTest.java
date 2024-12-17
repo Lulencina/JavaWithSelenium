@@ -1,5 +1,4 @@
 package tests;
-
 import com.github.javafaker.Faker;
 import org.example.CheckoutPage;
 import org.example.HomePage;
@@ -12,13 +11,11 @@ public class HomeTest {
 private HomePage homePage;
 private CheckoutPage checkoutPage;
 
-
     @BeforeMethod
     public void setUp() {
         DriverManager.getDriver().get("http://logofree.esy.es/");
         homePage = new HomePage();
     }
-
     @Test
     public void testGoToCheckOutPage() {
         //  Libreria Faker
@@ -31,7 +28,6 @@ private CheckoutPage checkoutPage;
         String telefono = faker.phoneNumber().cellPhone();
         String email = faker.internet().emailAddress();
 
-
         // Agregamos el producto
         homePage.addProductToCart();
 
@@ -42,7 +38,6 @@ private CheckoutPage checkoutPage;
         checkoutPage.clickProceedToCheckout();
 
         // Completamos los datos del formulario
-
         checkoutPage.enterFirstName(nombre);
         checkoutPage.enterLastName(apellido);
         checkoutPage.selectCountry("Thailand");
@@ -54,10 +49,8 @@ private CheckoutPage checkoutPage;
         checkoutPage.enterEmail(email);
         checkoutPage.clickProceedToPay();
     }
-
     @AfterMethod
     public void tearDown() {
         DriverManager.quitDriver();
     }
-
 }
